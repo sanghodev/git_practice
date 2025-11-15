@@ -1,0 +1,7 @@
+.layout {
+  width: 100%;
+  max-width: 480px; /* Mobile-first approach */
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}

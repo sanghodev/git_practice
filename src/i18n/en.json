@@ -1,0 +1,22 @@
+{
+  "title": "Lunch Menu Selector",
+  "add_member": "Add Member",
+  "remove_member": "Remove Member",
+  "start_game": "Start Game",
+  "settings": "Settings",
+  "theme": "Theme",
+  "language": "Language",
+  "cute": "Cute",
+  "minimal": "Minimal",
+  "select_game": "Select a Game",
+  "select_a_game": "Select a game",
+  "roulette": "Roulette",
+  "ladder": "Ladder",
+  "bomb_timer": "Bomb Timer",
+  "card_flip": "Card Flip",
+  "team_management": "Team Management",
+  "enter_name": "Enter name",
+  "fetch_nearby_restaurants": "Fetch Nearby Restaurants",
+  "votes": "{{count}} Votes",
+  "nearby_restaurants": "Nearby Restaurants"
+}

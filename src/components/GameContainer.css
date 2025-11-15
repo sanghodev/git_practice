@@ -1,0 +1,6 @@
+.game-container {
+  margin-top: 2rem;
+  border: 2px dashed var(--primary-color);
+  padding: 1rem;
+  min-height: 300px;
+}
