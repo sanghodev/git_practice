@@ -1,6 +1,40 @@
-:root {
-  --background-color: #fff0f5;
-  --text-color: #333;
-  --primary-color: #ff69b4;
-  --font-family: 'Comic Sans MS', cursive, sans-serif;
+/* src/styles/cute.css */
+:root .cute {
+  --background-color: #fdf3e1; /* 연한 크림색 배경 */
+  --text-color: #5c3a21; /* 진한 갈색 텍스트 */
+  --primary-color: #ff6e6e; /* 짱구 옷 같은 빨간색 */
+  --secondary-color: #ffd166; /* 짱구 모자 같은 노란색 */
+  --accent-color: #06d6a0; /* 활기찬 민트색 */
+  --font-family: 'Gaegu', cursive; /* 귀여운 손글씨 폰트 */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cute body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.cute button, .cute select {
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: var(--border-radius);
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s;
+}
+
+.cute button:hover {
+  transform: translateY(-2px);
+}
+
+.cute h1, .cute h2 {
+  color: var(--primary-color);
+  text-shadow: 2px 2px var(--secondary-color);
 }

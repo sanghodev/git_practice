@@ -1,6 +1,39 @@
-:root {
-  --background-color: #f5f5f5;
-  --text-color: #212121;
-  --primary-color: #007bff;
-  --font-family: 'Helvetica Neue', Arial, sans-serif;
+/* src/styles/minimal.css */
+:root .minimal {
+  --background-color: #ffffff; /* 깨끗한 흰색 배경 */
+  --text-color: #1a1a1a; /* 어두운 회색 텍스트 */
+  --primary-color: #007aff; /* 시스템 블루 */
+  --secondary-color: #f2f2f7; /* 밝은 회색 */
+  --accent-color: #34c759; /* 시스템 그린 */
+  --font-family: 'Inter', sans-serif;
+  --border-radius: 8px;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.minimal body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.minimal button, .minimal select {
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 1px solid #e5e5ea;
+  border-radius: var(--border-radius);
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.minimal button:hover {
+  background-color: #e5e5ea;
+}
+
+.minimal h1, .minimal h2 {
+  color: var(--text-color);
+  font-weight: 700;
 }

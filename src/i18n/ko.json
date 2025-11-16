@@ -18,5 +18,10 @@
   "enter_name": "이름 입력",
   "fetch_nearby_restaurants": "주변 식당 불러오기",
   "votes": "{{count}}표",
-  "nearby_restaurants": "주변 식당"
+  "nearby_restaurants": "주변 식당",
+  "card_dud": "꽝!",
+  "card_one_more": "한 번 더!",
+  "card_you_treat": "니가 쏴!",
+  "card_pass": "패스!",
+  "play_again": "다시하기"
 }

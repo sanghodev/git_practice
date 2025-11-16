@@ -2,26 +2,58 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+}
+
+.roulette-wheel-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
 }
 
 .roulette-wheel {
-  width: 200px;
-  height: 200px;
-  border: 5px solid var(--primary-color);
+  width: 100%;
+  height: 100%;
+  border: 5px solid var(--text-color);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  transition: transform 3s ease-out;
+  transition: transform 4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.roulette-wheel.spinning {
-  transform: rotate(1080deg);
+.roulette-pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid var(--primary-color);
 }
 
 .roulette-slice {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 10px;
+  width: 50%;
+  height: 50%;
+  background-color: var(--secondary-color);
+  transform-origin: 100% 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roulette-slice:nth-child(odd) {
+  background-color: #f2f2f7;
+}
+
+.slice-text {
+  display: block;
+  transform: skewY(45deg) rotate(15deg);
+  padding-left: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
