@@ -41,42 +41,52 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Adjusted for better text fit */
   font-weight: bold;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   padding: 10px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .card-front {
   background-color: var(--primary-color);
   color: white;
+  font-size: 2.5rem;
 }
 
 .card-back {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
   transform: rotateY(180deg);
 }
 
-/* Card type specific styles */
-.card-back.card-type-you_treat {
-  background-color: #ff4d4d; /* Red for emphasis */
-  color: white;
+/* Default Menu Card Style */
+.card-back.card-type-menu {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
-.card-back.card-type-one_more_try {
-  background-color: #4caf50; /* Green for positive outcome */
-  color: white;
-}
+
+/* Event Card Styles */
+.card-back.card-type-mission { background-color: #4a90e2; color: white; }
+.card-back.card-type-destiny { background-color: #7b4a7f; color: white; }
+.card-back.card-type-lucky { background-color: #50e3c2; color: var(--text-color); }
+.card-back.card-type-dud, .card-back.card-type-placeholder { background-color: #9b9b9b; color: white; }
+.card-back.card-type-youtreat, .card-back.card-type-you_treat_1 { background-color: #d0021b; color: white; }
+.card-back.card-type-onemore, .card-back.card-type-one_more_1 { background-color: #f5a623; color: white; }
+.card-back.card-type-pass { background-color: #4a4a4a; color: white; }
 
 .game-controls {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .result-text {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: var(--primary-color);
-  min-height: 2.2rem;
+  min-height: 2.5rem;
+  padding: 10px 20px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: var(--border-radius);
+  transition: all 0.3s;
 }

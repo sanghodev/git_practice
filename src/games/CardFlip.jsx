@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './CardFlip.css';
 
-// A large pool of potential card outcomes
-const createCardPool = (t) => [
-  { type: 'dud', text: t('card_dud') },
-  { type: 'one_more_try', text: t('card_one_more') },
-  { type: 'you_treat', text: t('card_you_treat') },
-  { type: 'pass', text: t('card_pass') },
-  // Add more variations here to reach ~50
-  ...Array.from({ length: 46 }, (_, i) => ({
-    type: 'dud',
-    text: `${t('card_dud')} #${i + 2}`,
-  })),
-];
+// Create a pool of all possible event cards
+const createEventCardPool = (t) => {
+  const keys = Object.keys(t).filter(key => key.startsWith('event_card_'));
+  return keys.map(key => ({
+    type: key.split('_')[2], // e.g., 'mission', 'destiny'
+    text: t(key),
+    isEvent: true,
+  }));
+};
 
 const CardFlip = ({ menus }) => {
   const { t } = useTranslation();
@@ -23,11 +20,23 @@ const CardFlip = ({ menus }) => {
   const [gameId, setGameId] = useState(0);
 
   useEffect(() => {
-    const cardPool = createCardPool(t);
-    const shuffled = [...cardPool].sort(() => 0.5 - Math.random());
-    const gameCards = shuffled.slice(0, menus.length > 1 ? menus.length : 6);
-    // Defer state update to next tick
-    setTimeout(() => setCards(gameCards), 0);
+    const eventCards = createEventCardPool(t);
+    const menuCards = menus.map(menu => ({ ...menu, isEvent: false, text: menu.name }));
+
+    let finalCards = [];
+    const totalCards = Math.max(menuCards.length, 6);
+    const eventCardCount = Math.floor(totalCards * 0.3);
+    const menuCardCount = totalCards - eventCardCount;
+
+    if (menuCards.length === 0) {
+      finalCards = [...eventCards].sort(() => 0.5 - Math.random()).slice(0, 10);
+    } else {
+      const selectedMenuCards = [...menuCards].sort(() => 0.5 - Math.random()).slice(0, menuCardCount);
+      const selectedEventCards = [...eventCards].sort(() => 0.5 - Math.random()).slice(0, eventCardCount);
+      finalCards = [...selectedMenuCards, ...selectedEventCards].sort(() => 0.5 - Math.random());
+    }
+    // Defer the state update to the next tick to avoid synchronous update within useEffect
+    setTimeout(() => setCards(finalCards), 0);
   }, [gameId, menus, t]);
 
   const shuffleAndDeal = () => {
@@ -45,7 +54,7 @@ const CardFlip = ({ menus }) => {
 
     const card = cards[index];
     setTimeout(() => {
-      setResult(`Card says: ${card.text}`);
+      setResult(card.text);
     }, 600);
   };
 
@@ -60,7 +69,7 @@ const CardFlip = ({ menus }) => {
           >
             <div className="card-inner">
               <div className="card-front">?</div>
-              <div className={`card-back card-type-${card.type}`}>{card.text}</div>
+              <div className={`card-back ${card.isEvent ? `card-type-${card.type}` : 'card-type-menu'}`}>{card.text}</div>
             </div>
           </div>
         ))}
