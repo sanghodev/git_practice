@@ -22,7 +22,9 @@ function App() {
   const [votes, setVotes] = useState(() => JSON.parse(localStorage.getItem('votes')) || {});
 
   useEffect(() => {
+    // Set the class on the body element
     document.body.className = theme;
+    // Save theme to localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 

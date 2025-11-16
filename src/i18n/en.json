@@ -18,5 +18,10 @@
   "enter_name": "Enter name",
   "fetch_nearby_restaurants": "Fetch Nearby Restaurants",
   "votes": "{{count}} Votes",
-  "nearby_restaurants": "Nearby Restaurants"
+  "nearby_restaurants": "Nearby Restaurants",
+  "card_dud": "Dud!",
+  "card_one_more": "One More Try!",
+  "card_you_treat": "You Treat!",
+  "card_pass": "Pass!",
+  "play_again": "Play Again"
 }
